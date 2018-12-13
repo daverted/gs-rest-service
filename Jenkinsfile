@@ -20,6 +20,31 @@ pipeline {
         sh 'mvn -DargLine="-Dtakipi.application.name=${JOB_NAME} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
       }
     }
+    stage('OverOps') {
+      steps {
+        OverOpsQuery(
+          applicationName: '${JOB_NAME}',
+          deploymentName: 'v0.1.0-${BUILD_NUMBER}',
+          activeTimespan: 60,
+          baselineTimespan: 10080,
+          criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
+          minVolumeThreshold: 1,
+          minErrorRateThreshold: 1,
+          regressionDelta: 0.5,
+          criticalRegressionDelta: 1,
+          applySeasonality: false,
+          markUnstable: true,
+          showResults: true,
+          printTopIssues: 10,
+          maxErrorVolume: 1,
+          maxUniqueErrors: 1,
+          regexFilter: '"type":\\"*(Timer|Logged Warning)',
+          verbose: true,
+          serverWait: 10,
+          serviceId: 'S37529'
+        )
+      }
+    }
     stage('Publish') {
       steps {
         sh 'echo "TODO"'
