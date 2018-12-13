@@ -24,7 +24,11 @@ public class GreetingControllerTest {
   @Test
   public void getGreeting() throws Exception {
     // this will fail - output is: {"id":1, "content":"Hello, World!"}
-    this.mvc.perform(get("/greeting")).andExpect(status().isOk()).andExpect(content().string("Hello, World!"));
+    // this.mvc.perform(get("/greeting")).andExpect(status().isOk()).andExpect(content().string("Hello,
+    // World!"));
+
+    this.mvc.perform(get("/greeting")).andExpect(status().isOk())
+        .andExpect(content().string("{\"id\":1,\"content\":\"Hello, World!\"}"));
   }
 
 }
