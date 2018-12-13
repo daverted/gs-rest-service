@@ -18,7 +18,7 @@ pipeline {
       }
       steps {
         sh 'env'
-        sh 'mvn -Darguments=-Dtakipi.deployment.name=v0.1.${BUILD_NUMBER} test
+        sh 'mvn -Darguments=-Dtakipi.deployment.name=v0.1.${BUILD_NUMBER} test'
       }
     }
     stage('Publish') {
