@@ -24,6 +24,7 @@ pipeline {
       steps {
         OverOpsQuery(
           applicationName: '${JOB_NAME}',
+          deploymentName: '',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
           activeTimespan: 60,
           baselineTimespan: 10080,
