@@ -26,7 +26,7 @@ pipeline {
           applicationName: '${JOB_NAME}',
           deploymentName: '',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
-          activeTimespan: 60,
+          activeTimespan: 240,
           baselineTimespan: 10080,
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
           minVolumeThreshold: 1,
