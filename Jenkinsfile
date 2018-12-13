@@ -26,7 +26,7 @@ pipeline {
           applicationName: '${JOB_NAME}',
           deploymentName: '',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
-          activeTimespan: 240,
+          activeTimespan: 180,
           baselineTimespan: 10080,
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
           minVolumeThreshold: 1,
@@ -41,7 +41,7 @@ pipeline {
           maxUniqueErrors: 1,
           regexFilter: '"type":\\"*(Timer|Logged Warning)',
           verbose: true,
-          serverWait: 30,
+          serverWait: 60,
           serviceId: 'S37529'
         )
       }
