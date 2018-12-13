@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Test') {
       environment {
-        TAKIPI_APPLICATION_NAME = ${JOB_NAME}
+        TAKIPI_APPLICATION_NAME = '${JOB_NAME}'
         TAKIPI_SERVER_NAME = 'Jenkins'
       }
       steps {
