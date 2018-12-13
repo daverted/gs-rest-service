@@ -1,7 +1,9 @@
 pipeline {
   agent {
-    dockerfile true
-    args '--link collector:collector'
+    dockerfile {
+      filename 'Dockerfile'
+      args '--link collector:collector'
+    }
   }
   stages {
     stage('Build') {
