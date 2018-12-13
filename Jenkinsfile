@@ -24,7 +24,7 @@ pipeline {
       steps {
         OverOpsQuery(
           applicationName: '${JOB_NAME}',
-          deploymentName: 'v0.1.0-${BUILD_NUMBER}',
+          // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
           activeTimespan: 60,
           baselineTimespan: 10080,
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
@@ -40,7 +40,7 @@ pipeline {
           maxUniqueErrors: 1,
           regexFilter: '"type":\\"*(Timer|Logged Warning)',
           verbose: true,
-          serverWait: 10,
+          serverWait: 30,
           serviceId: 'S37529'
         )
       }
