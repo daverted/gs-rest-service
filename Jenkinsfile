@@ -12,12 +12,8 @@ pipeline {
       }
     }
     stage('Test') {
-      // environment {
-      //   MAVEN_OPTS = "-agentpath:/takipi/lib/libTakipiAgent.so"
-      // }
       steps {
-        // sh 'env'
-        sh 'mvn test'
+        sh 'mvn -Dtakipi.application.name=${JOB_NAME} -Dtakipi.deployment.name=${BUILD_NUMBER} test'
       }
     }
     stage('Publish') {
