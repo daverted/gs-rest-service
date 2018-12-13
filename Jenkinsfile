@@ -17,7 +17,7 @@ pipeline {
       }
       steps {
         sh 'env'
-        sh 'mvn test'
+        sh 'mvn -X test'
       }
     }
     stage('Publish') {
