@@ -13,12 +13,11 @@ pipeline {
     }
     stage('Test') {
       environment {
-        TAKIPI_APPLICATION_NAME = '${JOB_NAME}'
         TAKIPI_SERVER_NAME = 'Jenkins'
       }
       steps {
         sh 'env'
-        sh 'mvn -Darguments=-Dtakipi.deployment.name=v0.1.${BUILD_NUMBER} test'
+        sh 'mvn -DargLine="-Dtakipi.application.name=${JOB_NAME} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
       }
     }
     stage('Publish') {
