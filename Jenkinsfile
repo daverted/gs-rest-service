@@ -12,12 +12,12 @@ pipeline {
       }
     }
     stage('Test') {
-      environment {
-        MAVEN_OPTS = "-agentpath:/takipi/lib/libTakipiAgent.so"
-      }
+      // environment {
+      //   MAVEN_OPTS = "-agentpath:/takipi/lib/libTakipiAgent.so"
+      // }
       steps {
-        sh 'env'
-        sh 'mvn -X test'
+        // sh 'env'
+        sh 'mvn test'
       }
     }
     stage('Publish') {

@@ -4,7 +4,7 @@ FROM maven:3-jdk-8-slim
 ENV TAKIPI_AGENT_HOME=/takipi
 ENV TAKIPI_COLLECTOR_HOST=collector
 ENV TAKIPI_COLLECTOR_PORT=6060
-# ENV JAVA_TOOL_OPTIONS=-agentpath:$TAKIPI_AGENT_HOME/lib/libTakipiAgent.so
+ENV JAVA_TOOL_OPTIONS=-agentpath:$TAKIPI_AGENT_HOME/lib/libTakipiAgent.so
 
 # install curl
 RUN apt-get update && apt-get -y install curl
