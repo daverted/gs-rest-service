@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'mvn -Dtakipi.application.name=${JOB_NAME} -Dtakipi.deployment.name=${BUILD_NUMBER} test'
+        sh 'mvn -Dtakipi.application.name=${JOB_NAME} -Dtakipi.deployment.name=${BRANCH_NAME}-${GIT_COMMIT}-${BUILD_NUMBER} test'
       }
     }
     stage('Publish') {
