@@ -13,7 +13,10 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'mvn -Dtakipi.application.name=${JOB_NAME} -Dtakipi.deployment.name=${BRANCH_NAME}-${GIT_COMMIT}-${BUILD_NUMBER} test'
+        sh 'mvn test -Darguments=" \
+              -Dtakipi.application.name=${JOB_NAME} \
+              -Dtakipi.deployment.name=${BRANCH_NAME}-${BUILD_NUMBER} \
+              -Dtakipi.server.name=Jenkins"'
       }
     }
     stage('Publish') {
