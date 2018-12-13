@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn package'
+        sh 'mvn package -DskipTests'
       }
     }
     stage('Test') {
@@ -16,9 +16,9 @@ pipeline {
         MAVEN_OPTS = "$MAVEN_OPTS -agentpath:$TAKIPI_AGENT_HOME/lib/libTakipiAgent.so"
       }
       steps {
-        sh 'echo "-----------"'
+        sh 'echo "###########"'
         sh 'env'
-        sh 'echo "-----------"'
+        sh 'echo "###########"'
         sh 'mvn test'
       }
     }
