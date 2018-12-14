@@ -1,3 +1,4 @@
+def appName = "${JOB_NAME}".split('/').first()
 pipeline {
   agent {
     dockerfile {
@@ -17,7 +18,6 @@ pipeline {
       }
       steps {
         sh 'env'
-        def appName = "${JOB_NAME}".split('/').first()
         sh 'mvn -DargLine="-Dtakipi.application.name=${appName} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
       }
     }
