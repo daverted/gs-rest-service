@@ -17,7 +17,7 @@ pipeline {
       }
       steps {
         sh 'env'
-        sh 'mvn -DargLine="-Dtakipi.application.name=${JOB_NAME} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
+        sh 'mvn -DargLine="-Dtakipi.application.name=${JOB_BASE_NAME} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
       }
     }
     stage('OverOps') {
