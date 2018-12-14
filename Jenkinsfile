@@ -44,6 +44,7 @@ pipeline {
           serverWait: 60,
           serviceId: 'S37529'
         )
+        sh 'echo "OverOps Reliability Report: ${BUILD_URL}/OverOpsReport/"'
       }
     }
     stage('Publish') {
