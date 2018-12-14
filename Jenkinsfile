@@ -1,4 +1,3 @@
-def appName = "${JOB_NAME}".split('/').first()
 pipeline {
   agent {
     dockerfile {
@@ -18,7 +17,7 @@ pipeline {
       }
       steps {
         sh 'env'
-        sh 'mvn -DargLine="-Dtakipi.application.name=${appName} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
+        sh 'mvn -DargLine="-Dtakipi.application.name=${JOB_NAME} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
       }
     }
     stage('OverOps') {
