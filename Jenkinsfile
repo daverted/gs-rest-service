@@ -17,7 +17,8 @@ pipeline {
       }
       steps {
         sh 'env'
-        sh 'mvn -DargLine="-Dtakipi.application.name=${JOB_BASE_NAME} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
+        def appName = "${JOB_NAME}".split('/').first()
+        sh 'mvn -DargLine="-Dtakipi.application.name=${appName} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
       }
     }
     stage('OverOps') {
