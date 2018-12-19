@@ -41,7 +41,7 @@ pipeline {
           maxErrorVolume: 0,
           maxUniqueErrors: 0,
           regexFilter: '"type":\\"*(Timer|Logged Warning)',
-          verbose: false,
+          verbose: true,
           serverWait: 60,
           serviceId: 'S37529'
         )
