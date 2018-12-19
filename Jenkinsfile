@@ -27,7 +27,7 @@ pipeline {
           deploymentName: '',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
           activeTimespan: 10080,
-          baselineTimespan: 10080,
+          baselineTimespan: 20160,
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
           minVolumeThreshold: 1,
           minErrorRateThreshold: 1,
