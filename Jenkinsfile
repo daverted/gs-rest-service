@@ -22,6 +22,7 @@ pipeline {
     }
     stage('OverOps') {
       steps {
+        echo "OverOps Reliability Report: ${BUILD_URL}OverOpsReport/"
         OverOpsQuery(
           applicationName: '${JOB_NAME}',
           deploymentName: '',
@@ -44,7 +45,6 @@ pipeline {
           serverWait: 60,
           serviceId: 'S37529'
         )
-        echo "OverOps Reliability Report: ${BUILD_URL}OverOpsReport/"
       }
     }
     stage('Publish') {
