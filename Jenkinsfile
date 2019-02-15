@@ -29,35 +29,36 @@ pipeline {
           deploymentName: '',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
 
-          markUnstable: true,
-          // showResults: true, **REMOVED**
-          printTopIssues: 10,
-          maxErrorVolume: 1,
-          maxUniqueErrors: 1,
-          regexFilter: '"type":\\"*(Timer|Logged Warning)',
-          // verbose: false, **REMOVED** --> NOW "debug"
-          // serverWait: 60, **REMOVED**
           serviceId: 'S37777',
 
-          // ↓ NEW ↓
+          regexFilter: '"type":\\"*(Timer|Logged Warning)',
+
+          markUnstable: true,
+
+          printTopIssues: 5,
+
+          // verbose: false, **REMOVED** --> NOW "debug"
+          // showResults: true, **REMOVED**
+          // serverWait: 60, **REMOVED**
+
           checkNewErrors: {}, // must be set for newEvents
           newEvents: true,  // does nothing, but must be set
 
           checkResurfacedErrors: {}, // must be set for resurfacedErrors
           resurfacedErrors: true, // does nothing, but must be set
 
-          checkVolumeErrors: {},
-          maxErrorVolume: '0',
+          checkVolumeErrors: {}, // must be set for maxErrorVolume
+          maxErrorVolume: 1,
 
-          checkUniqueErrors: {},
-          maxUniqueErrors: '0',
+          checkUniqueErrors: {}, // must be set for maxUniqueErrors
+          maxUniqueErrors: 1,
 
-          checkCriticalErrors: {},
+          checkCriticalErrors: {}, // must be set for checkCriticalErrors
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError', // newly nested under check critical errors
 
-          checkRegressionErrors: {},
-          activeTimespan: '10080', // NOW A STRING
-          baselineTimespan: '20160', // NOW A STRING
+          checkRegressionErrors: {}, // must be set for the 7 settings below
+          activeTimespan: '10080', // NOW A STRING (timespan in minutes)
+          baselineTimespan: '20160', // NOW A STRING (timespan in minutes)
           minVolumeThreshold: 1,
           minErrorRateThreshold: 1,
           regressionDelta: 0.5,
