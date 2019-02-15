@@ -50,7 +50,7 @@ pipeline {
           checkNewErrors: {}, // must be set for newEvents
           newEvents: true,  // does nothing, but must be set
 
-          checkResurfacedErrors: {} // must be set for resurfacedErrors
+          checkResurfacedErrors: {}, // must be set for resurfacedErrors
           resurfacedErrors: true, // does nothing, but must be set
 
           checkVolumeErrors: { maxErrorVolume: "0" }
