@@ -28,8 +28,8 @@ pipeline {
           applicationName: '${JOB_NAME}',
           deploymentName: '',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
-          activeTimespan: 10080,
-          baselineTimespan: 20160,
+          activeTimespan: '10080',
+          baselineTimespan: '20160',
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
           minVolumeThreshold: 1,
           minErrorRateThreshold: 1,
@@ -37,13 +37,13 @@ pipeline {
           criticalRegressionDelta: 1,
           applySeasonality: false,
           markUnstable: true,
-          showResults: true,
+          // showResults: true, **REMOVED**
           printTopIssues: 10,
           maxErrorVolume: 1,
           maxUniqueErrors: 1,
           regexFilter: '"type":\\"*(Timer|Logged Warning)',
-          verbose: false,
-          serverWait: 60,
+          // verbose: false, **REMOVED**
+          // serverWait: 60, **REMOVED**
           serviceId: 'S37777'
         )
       }
