@@ -1,5 +1,3 @@
-def slurper = new JsonSlurper()
-
 pipeline {
   agent any
   // agent {
@@ -42,22 +40,22 @@ pipeline {
           // showResults: true, **REMOVED**
           // serverWait: 60, **REMOVED**
 
-          checkNewErrors: jsonSlurper.parseText('{}'), // must be set for newEvents
+          checkNewErrors: "{}", // must be set for newEvents
           newEvents: true,  // does nothing, but must be set
 
-          checkResurfacedErrors: jsonSlurper.parseText('{}'), // must be set for resurfacedErrors
+          checkResurfacedErrors: "{}", // must be set for resurfacedErrors
           resurfacedErrors: true, // does nothing, but must be set
 
-          checkVolumeErrors: jsonSlurper.parseText('{}'), // must be set for maxErrorVolume
+          checkVolumeErrors: "{}", // must be set for maxErrorVolume
           maxErrorVolume: 1,
 
-          checkUniqueErrors: jsonSlurper.parseText('{}'), // must be set for maxUniqueErrors
+          checkUniqueErrors: "{}", // must be set for maxUniqueErrors
           maxUniqueErrors: 1,
 
-          checkCriticalErrors: jsonSlurper.parseText('{}'), // must be set for checkCriticalErrors
+          checkCriticalErrors: "{}", // must be set for checkCriticalErrors
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError', // newly nested under check critical errors
 
-          checkRegressionErrors: jsonSlurper.parseText('{}'), // must be set for the 7 settings below
+          checkRegressionErrors: "{}", // must be set for the 7 settings below
           activeTimespan: '10080', // NOW A STRING (timespan in minutes)
           baselineTimespan: '20160', // NOW A STRING (timespan in minutes)
           minVolumeThreshold: 1,
