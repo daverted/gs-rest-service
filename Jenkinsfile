@@ -47,13 +47,15 @@ pipeline {
           serviceId: 'S37777',
 
           // ↓ NEW ↓
-          checkNewErrors: {}, // must be set for newEvents
-          newEvents: true,  // does nothing, but must be set
+          checkNewErrors: { newEvents: true }, // must be set for newEvents
+          // ,  // does nothing, but must be set
 
-          checkResurfacedErrors: {}, // must be set for resurfacedErrors
-          resurfacedErrors: true, // does nothing, but must be set
+          checkResurfacedErrors: { resurfacedErrors: true }, // must be set for resurfacedErrors
+          // , // does nothing, but must be set
 
-          checkVolumeErrors: { maxErrorVolume: "0" }
+          checkVolumeErrors: { maxErrorVolume: "0" },
+
+          checkUniqueErrors: { maxUniqueErrors: "0" },
         )
       }
     }
