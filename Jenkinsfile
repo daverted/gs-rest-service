@@ -1,14 +1,15 @@
 pipeline {
-  agent {
-    dockerfile {
-      filename 'Dockerfile'
-      // args '--link collector:collector'
-    }
-  }
+  agent any
+  // agent {
+  //   dockerfile {
+  //     filename 'Dockerfile'
+  //     // args '--link collector:collector'
+  //   }
+  // }
   stages {
     stage('Build') {
       steps {
-        sh 'mvn package -DskipTests'
+        sh './mvnw package -DskipTests'
       }
     }
     stage('Test') {
@@ -17,7 +18,7 @@ pipeline {
       }
       steps {
         sh 'env'
-        sh 'mvn -DargLine="-Dtakipi.application.name=${JOB_NAME} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
+        sh './mvnw -DargLine="-Dtakipi.application.name=${JOB_NAME} -Dtakipi.deployment.name=v0.1.0-${BUILD_NUMBER}" test'
       }
     }
     // stage('OverOps') {
