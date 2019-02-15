@@ -40,22 +40,22 @@ pipeline {
           // showResults: true, **REMOVED**
           // serverWait: 60, **REMOVED**
 
-          checkNewErrors: "{}", // must be set for newEvents
+          checkNewErrors: {foo:'bar'}, // must be set for newEvents
           newEvents: true,  // does nothing, but must be set
 
-          checkResurfacedErrors: "{}", // must be set for resurfacedErrors
+          checkResurfacedErrors: {foo:'bar'}, // must be set for resurfacedErrors
           resurfacedErrors: true, // does nothing, but must be set
 
-          checkVolumeErrors: "{}", // must be set for maxErrorVolume
+          checkVolumeErrors: {foo:'bar'}, // must be set for maxErrorVolume
           maxErrorVolume: 1,
 
-          checkUniqueErrors: "{}", // must be set for maxUniqueErrors
+          checkUniqueErrors: {foo:'bar'}, // must be set for maxUniqueErrors
           maxUniqueErrors: 1,
 
-          checkCriticalErrors: "{}", // must be set for checkCriticalErrors
+          checkCriticalErrors: {foo:'bar'}, // must be set for checkCriticalErrors
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError', // newly nested under check critical errors
 
-          checkRegressionErrors: "{}", // must be set for the 7 settings below
+          checkRegressionErrors: {foo:'bar'}, // must be set for the 7 settings below
           activeTimespan: '10080', // NOW A STRING (timespan in minutes)
           baselineTimespan: '20160', // NOW A STRING (timespan in minutes)
           minVolumeThreshold: 1,
