@@ -45,8 +45,15 @@ pipeline {
           // verbose: false, **REMOVED**
           // serverWait: 60, **REMOVED**
           serviceId: 'S37777',
+
           // ↓ NEW ↓
-          checkNewErrors: { newEvents: true }
+          checkNewErrors: {}, // must be set for newEvents
+          newEvents: true,  // does nothing, but must be set
+
+          checkResurfacedErrors: {} // must be set for resurfacedErrors
+          resurfacedErrors: true, // does nothing, but must be set
+
+          checkVolumeErrors: { maxErrorVolume: "0" }
         )
       }
     }
