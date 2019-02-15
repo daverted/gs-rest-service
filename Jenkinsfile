@@ -44,7 +44,9 @@ pipeline {
           regexFilter: '"type":\\"*(Timer|Logged Warning)',
           // verbose: false, **REMOVED**
           // serverWait: 60, **REMOVED**
-          serviceId: 'S37777'
+          serviceId: 'S37777',
+          // ↓ NEW ↓
+          checkNewErrors: { newEvents: true }
         )
       }
     }
