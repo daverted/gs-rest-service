@@ -53,7 +53,7 @@ pipeline {
           checkUniqueErrors: null,
           maxUniqueErrors: 1,
 
-          checkCriticalErrors: null
+          checkCriticalErrors: null,
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError', // newly nested under check critical errors
 
           checkRegressionErrors: null,
