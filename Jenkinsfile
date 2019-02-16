@@ -24,8 +24,9 @@ pipeline {
     stage('OverOps') {
       steps {
         OverOpsQuery(
-          applicationName: '${JOB_NAME}',
-          deploymentName: '',
+          applicationName: 'OverOps'
+          deploymentName: 'v4.30.0',
+          // applicationName: '${JOB_NAME}',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
 
           serviceId: 'S37777',
@@ -40,22 +41,22 @@ pipeline {
           // showResults: true, **REMOVED**
           // serverWait: 60, **REMOVED**
 
-          checkNewErrors: {foo:'bar'}, // must be set for newEvents
+          checkNewErrors: {}, // must be set for newEvents
           newEvents: true,  // does nothing, but must be set
 
-          checkResurfacedErrors: {foo:'bar'}, // must be set for resurfacedErrors
+          checkResurfacedErrors: {}, // must be set for resurfacedErrors
           resurfacedErrors: true, // does nothing, but must be set
 
-          checkVolumeErrors: {foo:'bar'}, // must be set for maxErrorVolume
+          checkVolumeErrors: {}, // must be set for maxErrorVolume
           maxErrorVolume: 1,
 
-          checkUniqueErrors: {foo:'bar'}, // must be set for maxUniqueErrors
+          checkUniqueErrors: {}, // must be set for maxUniqueErrors
           maxUniqueErrors: 1,
 
-          checkCriticalErrors: {foo:'bar'}, // must be set for checkCriticalErrors
+          checkCriticalErrors: {}, // must be set for checkCriticalErrors
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError', // newly nested under check critical errors
 
-          checkRegressionErrors: {foo:'bar'}, // must be set for the 7 settings below
+          checkRegressionErrors: {}, // must be set for the 7 settings below
           activeTimespan: '10080', // NOW A STRING (timespan in minutes)
           baselineTimespan: '20160', // NOW A STRING (timespan in minutes)
           minVolumeThreshold: 1,
@@ -64,7 +65,7 @@ pipeline {
           criticalRegressionDelta: 1,
           applySeasonality: false,
 
-          debug: false
+          debug: true
         )
         echo "OverOps Reliability Report: ${BUILD_URL}OverOpsReport/"
       }
