@@ -65,7 +65,7 @@ pipeline {
           criticalRegressionDelta: 1,
           applySeasonality: false,
 
-          debug: true
+          debug: false
         )
         echo "OverOps Reliability Report: ${BUILD_URL}OverOpsReport/"
       }
