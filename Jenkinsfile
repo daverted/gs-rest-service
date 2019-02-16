@@ -24,7 +24,7 @@ pipeline {
     stage('OverOps') {
       steps {
         OverOpsQuery(
-          applicationName: 'OverOps'
+          applicationName: 'OverOps',
           deploymentName: 'v4.30.0',
           // applicationName: '${JOB_NAME}',
           // deploymentName: 'v0.1.0-${BUILD_NUMBER}',
