@@ -44,10 +44,10 @@ pipeline {
           resurfacedErrors: true,
 
           checkVolumeErrors: [ maxErrorVolume: '1' ],
-          maxErrorVolume: '1',
+          maxErrorVolume: 1,
 
           checkUniqueErrors: [ maxUniqueErrors: '1' ],
-          maxUniqueErrors: '1',
+          maxUniqueErrors: 1,
 
           checkCriticalErrors: [ criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError' ],
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
@@ -55,10 +55,10 @@ pipeline {
           checkRegressionErrors: [activeTimespan: '12h', baselineTimespan: '7d', minVolumeThreshold: '20', minErrorRateThreshold: '0.1', regressionDelta: '0.5', criticalRegressionDelta: '1', applySeasonality: true],
           activeTimespan: '12h',
           baselineTimespan: '7d',
-          minVolumeThreshold: '1',
-          minErrorRateThreshold: '1',
-          regressionDelta: '0.5',
-          criticalRegressionDelta: '1',
+          minVolumeThreshold: 1,
+          minErrorRateThreshold: 1,
+          regressionDelta: 0.5,
+          criticalRegressionDelta: 1,
           applySeasonality: false,
 
           debug: false
