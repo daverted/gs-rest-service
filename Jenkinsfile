@@ -37,32 +37,28 @@ pipeline {
 
           printTopIssues: 5,
 
-          // verbose: false, **REMOVED** --> NOW "debug"
-          // showResults: true, **REMOVED**
-          // serverWait: 60, **REMOVED**
-
-          checkNewErrors: null,
+          checkNewErrors: [ newEvents: true ],
           newEvents: true,
 
-          checkResurfacedErrors: null,
+          checkResurfacedErrors: [ resurfacedErrors: true ],
           resurfacedErrors: true,
 
-          checkVolumeErrors: null,
-          maxErrorVolume: 1,
+          checkVolumeErrors: [ maxErrorVolume: '1' ],
+          maxErrorVolume: '1',
 
-          checkUniqueErrors: null,
-          maxUniqueErrors: 1,
+          checkUniqueErrors: [ maxUniqueErrors: '1' ],
+          maxUniqueErrors: '1',
 
-          checkCriticalErrors: null,
-          criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError', // newly nested under check critical errors
+          checkCriticalErrors: [ criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError' ],
+          criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
 
-          checkRegressionErrors: null,
-          activeTimespan: '10080', // NOW A STRING (timespan in minutes)
-          baselineTimespan: '20160', // NOW A STRING (timespan in minutes)
-          minVolumeThreshold: 1,
-          minErrorRateThreshold: 1,
-          regressionDelta: 0.5,
-          criticalRegressionDelta: 1,
+          checkRegressionErrors: [activeTimespan: '12h', baselineTimespan: '7d', minVolumeThreshold: '20', minErrorRateThreshold: '0.1', regressionDelta: '0.5', criticalRegressionDelta: '1', applySeasonality: true],
+          activeTimespan: '12h',
+          baselineTimespan: '7d',
+          minVolumeThreshold: '1',
+          minErrorRateThreshold: '1',
+          regressionDelta: '0.5',
+          criticalRegressionDelta: '1',
           applySeasonality: false,
 
           debug: false
