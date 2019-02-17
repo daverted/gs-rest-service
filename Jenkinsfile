@@ -37,31 +37,31 @@ pipeline {
 
           printTopIssues: 5,
 
-          checkNewErrors: [ newEvents: true ],
+          // checkNewErrors: [ newEvents: true ],
           newEvents: true,
 
-          checkResurfacedErrors: [ resurfacedErrors: true ],
+          // checkResurfacedErrors: [ resurfacedErrors: true ],
           resurfacedErrors: true,
 
-          checkVolumeErrors: [ maxErrorVolume: '1' ],
-          maxErrorVolume: 1,
+          // checkVolumeErrors: [ maxErrorVolume: '1' ],
+          maxErrorVolume: 0,
 
-          checkUniqueErrors: [ maxUniqueErrors: '1' ],
-          maxUniqueErrors: 1,
+          // checkUniqueErrors: [ maxUniqueErrors: '1' ],
+          maxUniqueErrors: 0,
 
-          checkCriticalErrors: [ criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError' ],
+          // checkCriticalErrors: [ criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError' ],
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
 
-          checkRegressionErrors: [activeTimespan: '12h', baselineTimespan: '7d', minVolumeThreshold: '20', minErrorRateThreshold: '0.1', regressionDelta: '0.5', criticalRegressionDelta: '1', applySeasonality: true],
+          // checkRegressionErrors: [activeTimespan: '12h', baselineTimespan: '7d', minVolumeThreshold: '20', minErrorRateThreshold: '0.1', regressionDelta: '0.5', criticalRegressionDelta: '1', applySeasonality: true],
           activeTimespan: '12h',
           baselineTimespan: '7d',
-          minVolumeThreshold: 1,
-          minErrorRateThreshold: 1,
+          minVolumeThreshold: 20,
+          minErrorRateThreshold: 0.1,
           regressionDelta: 0.5,
-          criticalRegressionDelta: 1,
-          applySeasonality: false,
+          criticalRegressionDelta: 1.0,
+          applySeasonality: true,
 
-          debug: false
+          debug: true
         )
         echo "OverOps Reliability Report: ${BUILD_URL}OverOpsReport/"
       }
