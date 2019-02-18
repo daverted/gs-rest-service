@@ -54,7 +54,7 @@ pipeline {
           criticalRegressionDelta: 1,
           applySeasonality: false,
           markUnstable: true,
-          showResults: true,
+          // showResults: true,
           printTopIssues: 10,
           maxErrorVolume: 0,
           maxUniqueErrors: 0,
