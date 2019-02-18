@@ -38,8 +38,8 @@ pipeline {
           // maxErrorVolume: 0,
           // maxUniqueErrors: 0,
           // criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
-          // activeTimespan: '12h',
-          // baselineTimespan: '7d',
+          activeTimespan: '12h',
+          baselineTimespan: '7d',
           // minVolumeThreshold: 20,
           // minErrorRateThreshold: 0.1,
           // regressionDelta: 0.5,
@@ -48,8 +48,6 @@ pipeline {
           // debug: true
 
           // debugging
-          activeTimespan: 180,
-          baselineTimespan: 10080,
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
           minVolumeThreshold: 1,
           minErrorRateThreshold: 1,
