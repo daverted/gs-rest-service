@@ -47,7 +47,6 @@ pipeline {
           // applySeasonality: true,
           // debug: true
 
-          // debugging
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
           minVolumeThreshold: 1,
           minErrorRateThreshold: 1,
@@ -59,9 +58,7 @@ pipeline {
           printTopIssues: 10,
           maxErrorVolume: 0,
           maxUniqueErrors: 0,
-          regexFilter: '"type":\\"*(Timer|Logged Warning)',
-          verbose: true,
-          serverWait: 60
+          regexFilter: '"type":\\"*(Timer|Logged Warning)'
         )
         echo "OverOps Reliability Report: ${BUILD_URL}OverOpsReport/"
       }
