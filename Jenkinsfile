@@ -47,6 +47,7 @@ pipeline {
           // applySeasonality: true,
           // debug: true
 
+          // debugging
           activeTimespan: 180,
           baselineTimespan: 10080,
           criticalExceptionTypes: 'NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError',
